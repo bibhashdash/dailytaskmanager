@@ -35,7 +35,7 @@ newTaskInput.addEventListener("click", function() {
     const taskList = document.querySelectorAll(".task-text");
     for (let i = 0; i < taskList.length; i++) {
         taskList[i].addEventListener("click", function() {
-            this.classList.toggle("task-finished");
+            this.classList.add("task-finished");
         });
     }
 
