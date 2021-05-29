@@ -36,6 +36,7 @@ form.addEventListener("submit", function(event) {
 document
     .querySelector(".btn-reset-list")
     .addEventListener("click", function() {
+        form.reset();
         const taskSlots = document.querySelectorAll(".task-slot");
         for (let k = 0; k < taskSlots.length; k++) {
             taskSlots[k].remove();
