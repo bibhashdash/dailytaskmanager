@@ -116,14 +116,17 @@ h1 {
     .container {
         width: 90vw;
     }
-    .task-slot {
-        font-size: 1.5rem;
+    .form {
+        width: 90vw;
     }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
     .container {
         width: 90vw;
+    }
+    .form {
+        width: 50vw;
     }
     .task-slot {
         font-size: 2rem;
@@ -135,11 +138,11 @@ h1 {
         width: 90vw;
         box-shadow: 5px 5px 5px black;
     }
+    .form {
+        width: 90vw;
+    }
     .task-slot {
         font-size: 1rem;
-    }
-    .btn {
-        font-size: 2rem;
     }
     .btn-delete {
         margin-right: 5px;
