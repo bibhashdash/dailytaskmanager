@@ -1,35 +1,16 @@
 const container = document.querySelector(".container");
 const newTaskInput = document.querySelector(".btn-newtask");
+const form = document.getElementById("form");
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let inputFieldValue = document.querySelector(".enter-task-field").value;
 
-// Input a new task and display it in the list
-newTaskInput.addEventListener("click", function() {
-    // capture task
-    const newTask = prompt("Enter a new task");
-    if (newTask === "" || newTask === null) {
-        alert("No task entered. Give it another go!");
-    }
-    // create a slot for the new Task, give it a class, and add it to container div
-    else {
-        const newTaskSlot = document.createElement("div");
-        newTaskSlot.className = "task-slot";
-        container.appendChild(newTaskSlot);
+    taskSlot = document.createElement("div");
+    taskSlot.classList.add("task-slot");
+    taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
+    <div class="btn-delete">❌</div>`;
 
-        // create a paragraph element to display the task, give it a class and add it to the new slot above
-        const newTaskText = document.createElement("p");
-        newTaskText.className = "task-text";
-        newTaskSlot.appendChild(newTaskText);
-
-        // create a div for the 'delete' icon, input a cross symbol, and append to the new slot above
-        const deleteButton = document.createElement("div");
-
-        deleteButton.setAttribute("class", "btn-delete");
-        deleteButton.textContent = "❌";
-        newTaskSlot.appendChild(deleteButton);
-
-        // display the new task in the DOM
-
-        newTaskText.textContent = "▶" + "   " + newTask;
-    }
+    container.appendChild(taskSlot);
 
     // when task is clicked, turn it green and put a line-through
     const taskList = document.querySelectorAll(".task-text");

@@ -13,10 +13,15 @@
 
 <body>
     <h1>Daily Task Manager</h1>
-    <div class="main-buttons">
+    <form id="form">
+        <input class="enter-task-field" type="text" placeholder="Enter a task" />
+        <button class="btn-submit" type="submit">Add to list</button>
+    </form>
+    <button class="btn-reset-list"></button>
+    <!-- <div class="main-buttons">
         <div class="btn btn-newtask">✍</div>
         <div class="btn btn-reset-list">💥</div>
-    </div>
+    </div> -->
 
     <div id="tasks-container" class="container"></div>
 
