@@ -8,7 +8,7 @@ form.addEventListener("submit", function(event) {
     taskSlot = document.createElement("div");
     taskSlot.classList.add("task-slot");
     taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
-    <div class="btn-delete">❌</div>`;
+    <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
 
     container.appendChild(taskSlot);
 
