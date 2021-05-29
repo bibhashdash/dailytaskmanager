@@ -69,7 +69,7 @@ h1 {
     /* border-radius: 20px; */
     width: 95%;
     display: grid;
-    grid-template-columns: 90% auto;
+    grid-template-columns: 80% auto;
     gap: 0;
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
@@ -87,6 +87,8 @@ h1 {
     justify-self: end;
     align-self: center;
     margin-right: 20px;
+    font-size: 1.5rem;
+    color: red;
 }
 
 .task-text {
@@ -141,11 +143,15 @@ h1 {
     .form {
         width: 90vw;
     }
+    .btn {
+        font-size: 0.9rem;
+    }
     .task-slot {
         font-size: 1rem;
     }
     .btn-delete {
         margin-right: 5px;
+        font-size: 1rem;
     }
     .task-text {
         margin-left: 5px;

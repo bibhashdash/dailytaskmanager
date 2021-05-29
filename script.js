@@ -7,11 +7,11 @@ form.addEventListener("submit", function(event) {
     if (inputFieldValue !== "") {
         taskSlot = document.createElement("div");
         taskSlot.classList.add("task-slot");
-        taskSlot.innerHTML = `<p class="task-text">▶ ${inputFieldValue}</p>
+        taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
 
         container.appendChild(taskSlot);
-
+        // form.reset();
         // when task is clicked, turn it green and put a line-through
         const taskList = document.querySelectorAll(".task-text");
         for (let i = 0; i < taskList.length; i++) {
