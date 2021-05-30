@@ -15,6 +15,7 @@ form.addEventListener("submit", function(event) {
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
 
         container.appendChild(taskSlot);
+        window.sessionStorage;
         sessionStorage.setItem("new-task", `${inputFieldValue}`);
         form.reset();
         // when task finished button (green check mark) is clicked, put a line-through the task text
