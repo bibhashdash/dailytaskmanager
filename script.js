@@ -1,9 +1,12 @@
 const container = document.querySelector(".container");
 const newTaskInput = document.querySelector(".btn-newtask");
 const form = document.getElementById("form");
+
 form.addEventListener("submit", function(event) {
+    //enter a new task
     event.preventDefault();
     let inputFieldValue = document.querySelector(".enter-task-field").value;
+    //check if blank input
     if (inputFieldValue !== "") {
         taskSlot = document.createElement("div");
         taskSlot.classList.add("task-slot");
@@ -13,20 +16,18 @@ form.addEventListener("submit", function(event) {
 
         container.appendChild(taskSlot);
         form.reset();
-        // when task is clicked, turn it green and put a line-through
+        // when task finished button (green check mark) is clicked, put a line-through the task text
 
         const taskFinishedbtns = document.querySelectorAll(".btn-finished");
         for (let l = 0; l < taskFinishedbtns.length; l++) {
             taskFinishedbtns[l].addEventListener("click", function() {
                 this.parentElement.classList.add("task-finished");
+                document.querySelector(".success").classList.remove("hidden");
+                setTimeout(() => {
+                    document.querySelector(".success").classList.add("hidden");
+                }, 2000);
             });
         }
-        // const taskList = document.querySelectorAll(".task-text");
-        // for (let i = 0; i < taskList.length; i++) {
-        //     taskList[i].addEventListener("click", function() {
-        //         this.classList.add("task-finished");
-        //     });
-        // }
 
         // when delete button is clicked, remove the task
         const deleteBtns = document.querySelectorAll(".btn-delete");
@@ -36,7 +37,10 @@ form.addEventListener("submit", function(event) {
             });
         }
     } else {
-        alert("No value entered. Try again!");
+        document.querySelector(".warning").classList.remove("hidden");
+        setTimeout(() => {
+            document.querySelector(".warning").classList.add("hidden");
+        }, 2000);
     }
 });
 
