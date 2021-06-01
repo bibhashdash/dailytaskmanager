@@ -26,7 +26,9 @@ form.addEventListener("submit", function(event) {
         const taskFinishedbtns = document.querySelectorAll(".btn-finished");
         for (let l = 0; l < taskFinishedbtns.length; l++) {
             taskFinishedbtns[l].addEventListener("click", function() {
-                this.parentElement.classList.add("task-finished");
+                this.previousElementSibling.classList.add("task-finished");
+                this.parentElement.classList.add("task-slot-finished");
+                this.classList.add("hidden-alt");
                 document.querySelector(".success").classList.remove("hidden");
                 setTimeout(() => {
                     document.querySelector(".success").classList.add("hidden");
