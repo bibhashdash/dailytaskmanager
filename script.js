@@ -15,8 +15,11 @@ form.addEventListener("submit", function(event) {
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
 
         container.appendChild(taskSlot);
-        // window.sessionStorage;
-        // sessionStorage.setItem("new-task", `${inputFieldValue}`);
+        document.querySelector(".task-added").classList.remove("hidden");
+        setTimeout(() => {
+            document.querySelector(".task-added").classList.add("hidden");
+        }, 2000);
+        // After clicking 'add to list' clear the input field
         form.reset();
         // when task finished button (green check mark) is clicked, put a line-through the task text
 
