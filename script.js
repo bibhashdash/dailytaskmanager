@@ -44,6 +44,10 @@ form.addEventListener("submit", function(event) {
         for (let j = 0; j < deleteBtns.length; j++) {
             deleteBtns[j].addEventListener("click", function() {
                 this.parentNode.remove();
+                document.querySelector(".task-deleted").classList.remove("hidden");
+                setTimeout(() => {
+                    document.querySelector(".task-deleted").classList.add("hidden");
+                }, 2000);
             });
         }
     } else {
