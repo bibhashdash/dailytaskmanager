@@ -14,13 +14,16 @@ form.addEventListener("submit", function(event) {
         <div class="btn-finished"><i class="far fa-check-square"></i></i></div>
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
 
+        // show a message saying task added, make it disappear after 2 seconds.
         container.appendChild(taskSlot);
         document.querySelector(".task-added").classList.remove("hidden");
         setTimeout(() => {
             document.querySelector(".task-added").classList.add("hidden");
         }, 2000);
+
         // After clicking 'add to list' clear the input field
         form.reset();
+
         // when task finished button (green check mark) is clicked, put a line-through the task text
 
         const taskFinishedbtns = document.querySelectorAll(".btn-finished");
