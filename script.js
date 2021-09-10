@@ -6,55 +6,47 @@ form.addEventListener("submit", function(event) {
     //enter a new task
     event.preventDefault();
     let inputFieldValue = document.querySelector(".enter-task-field").value;
-    //check if blank input
+    //check if not a blank input
     if (inputFieldValue !== "") {
         taskSlot = document.createElement("div");
         taskSlot.classList.add("task-slot");
         taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
         <div class="btn-finished"><i class="far fa-check-square"></i></i></div>
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
-
-        // show a message saying task added, make it disappear after 2 seconds.
         container.appendChild(taskSlot);
-        document.querySelector(".task-added").classList.remove("hidden");
-        setTimeout(() => {
-            document.querySelector(".task-added").classList.add("hidden");
-        }, 2000);
+        // show a message saying task added, make it disappear after 2 seconds.
+        showWarnings("task-added");
 
         // After clicking 'add to list' clear the input field
         form.reset();
 
         // when task finished button (green check mark) is clicked, put a line-through the task text
-
         const taskFinishedbtns = document.querySelectorAll(".btn-finished");
-        for (let l = 0; l < taskFinishedbtns.length; l++) {
-            taskFinishedbtns[l].addEventListener("click", function() {
-                this.previousElementSibling.classList.add("task-finished");
-                this.parentElement.classList.add("task-slot-finished");
-                this.classList.add("hidden-alt");
-                document.querySelector(".success").classList.remove("hidden");
-                setTimeout(() => {
-                    document.querySelector(".success").classList.add("hidden");
-                }, 2000);
+        taskFinishedbtns.forEach(function(el1) {
+            el1.addEventListener("click", function() {
+                el1.previousElementSibling.classList.add("task-finished");
+                el1.parentElement.classList.add("task-slot-finished");
+                el1.classList.add("hidden-alt");
+
+                // show a message saying task finished, make it disappear after 2 seconds.
+                showWarnings("success");
             });
-        }
+        });
 
         // when delete button is clicked, remove the task
         const deleteBtns = document.querySelectorAll(".btn-delete");
-        for (let j = 0; j < deleteBtns.length; j++) {
-            deleteBtns[j].addEventListener("click", function() {
-                this.parentNode.remove();
-                document.querySelector(".task-deleted").classList.remove("hidden");
-                setTimeout(() => {
-                    document.querySelector(".task-deleted").classList.add("hidden");
-                }, 2000);
+        deleteBtns.forEach(function(el2) {
+            el2.addEventListener("click", function() {
+                el2.parentNode.remove();
+
+                // show a message saying task deleted, make it disappear after 2 seconds.
+                showWarnings("task-deleted");
             });
-        }
+        });
     } else {
-        document.querySelector(".warning").classList.remove("hidden");
-        setTimeout(() => {
-            document.querySelector(".warning").classList.add("hidden");
-        }, 2000);
+        // If user clicks 'add to list' without entering any value
+        // show a message saying 'no value entered', make it disappear after 2 seconds.
+        showWarnings("no-value-warning");
     }
 });
 
@@ -68,3 +60,12 @@ document
             taskSlots[k].remove();
         }
     });
+
+// warning messages function
+
+function showWarnings(warningMessage) {
+    document.querySelector(`.${warningMessage}`).classList.remove("hidden");
+    setTimeout(() => {
+        document.querySelector(`.${warningMessage}`).classList.add("hidden");
+    }, 2000);
+}
