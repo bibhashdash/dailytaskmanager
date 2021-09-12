@@ -11,7 +11,8 @@ form.addEventListener("submit", function(event) {
         taskSlot = document.createElement("div");
         taskSlot.classList.add("task-slot");
         taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
-        <div class="btn-finished"><i class="far fa-check-square"></i></i></div>
+        <div class="btn-finished"><i class="far fa-check-square"></i></div>
+        <div class="btn-undofinished hidden"><i class="fas fa-undo-alt"></i></div>
     <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
         container.appendChild(taskSlot);
         // show a message saying task added, make it disappear after 2 seconds.
@@ -30,6 +31,22 @@ form.addEventListener("submit", function(event) {
 
                 // show a message saying task finished, make it disappear after 2 seconds.
                 showWarnings("success");
+
+                // when 'task finished' button is clicked, show the undo-taskfinished button so that user can reset if required.
+                el1.nextElementSibling.classList.remove("hidden");
+            });
+        });
+
+        // when 'undo task finished' button is clicked
+        // reinstate the task
+        const undotaskfinishedbtns = document.querySelectorAll(".btn-undofinished");
+        undotaskfinishedbtns.forEach(function(el3) {
+            el3.addEventListener("click", function() {
+                el3.parentElement.classList.remove("task-slot-finished");
+                el3.classList.add("hidden");
+                el3.previousElementSibling.classList.remove("hidden-alt");
+                showWarnings("task-reinstated");
+                el3.parentElement.firstChild.classList.remove("task-finished");
             });
         });
 
