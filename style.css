@@ -208,6 +208,9 @@ a {
     .form {
         width: 75vw;
     }
+    .task-slot {
+        grid-template-columns: 60% auto auto auto;
+    }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -234,10 +237,11 @@ a {
         width: 90vw;
     }
     .btn {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .task-slot {
         font-size: 1rem;
+        grid-template-columns: 60% auto auto auto;
     }
     .btn-delete {
         margin-right: 5px;
