@@ -7,12 +7,23 @@ body {
     /* background: linear-gradient(90deg, #d3cce3, #e9e4f0); */
     background: #474747;
     font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .warning {
     position: absolute;
     top: 0;
     /* margin-bottom: 20px; */
+    padding: 10px;
+    background-color: rgb(246, 189, 0);
+    color: rgb(15, 15, 15);
+}
+
+.modal-warning {
+    z-index: 13;
     padding: 10px;
     background-color: rgb(246, 189, 0);
     color: rgb(15, 15, 15);
@@ -46,6 +57,15 @@ body {
 }
 
 .task-reinstated {
+    position: fixed;
+    top: 0;
+    /* margin-bottom: 20px; */
+    padding: 10px;
+    background-color: rgb(246, 189, 0);
+    color: rgb(15, 15, 15);
+}
+
+.task-edited {
     position: fixed;
     top: 0;
     /* margin-bottom: 20px; */
@@ -130,7 +150,7 @@ a {
     /* border-radius: 20px; */
     width: 100%;
     display: grid;
-    grid-template-columns: 70% auto auto auto;
+    grid-template-columns: 60% auto auto auto auto;
     gap: 0;
     font-size: 1.5rem;
     margin-bottom: 0.09rem;
@@ -142,6 +162,17 @@ a {
 
 .task-slot-finished {
     background-color: #00661a;
+}
+
+.btn-edit {
+    background-color: none;
+    /* border-radius: 20%; */
+    cursor: pointer;
+    justify-self: end;
+    align-self: center;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    color: rgb(0, 162, 255);
 }
 
 .btn-finished {
@@ -199,6 +230,32 @@ a {
 
 .hidden-alt {
     visibility: hidden;
+}
+
+.modal-background {
+    position: absolute;
+    z-index: 10;
+    width: 100vw;
+    height: 200vh;
+    background-color: #000000a9;
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    position: absolute;
+    z-index: 12;
+    width: fit-content;
+    height: 200px;
+    background-color: #474747;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 @media all and (min-width: 480px) and (max-width: 767px) {

@@ -1,6 +1,12 @@
 const container = document.querySelector(".container");
 const newTaskInput = document.querySelector(".btn-newtask");
 const form = document.getElementById("form");
+const form2 = document.getElementById("form2");
+const modalBackground = document.querySelector(".modal-background");
+modalBackground.addEventListener("click", function() {
+    document.querySelector(".modal-background").classList.add("hidden");
+    document.querySelector(".modal").classList.add("hidden");
+});
 
 form.addEventListener("submit", function(event) {
     //enter a new task
@@ -12,8 +18,9 @@ form.addEventListener("submit", function(event) {
         taskSlot.classList.add("task-slot");
         taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
         <div class="btn-finished"><i class="far fa-check-square"></i></div>
+        
         <div class="btn-undofinished hidden"><i class="fas fa-undo-alt"></i></div>
-    <div class="btn-delete"><i class="far fa-trash-alt"></i></div>`;
+    <div class="btn-delete"><i class="far fa-trash-alt"></i></div><div class="btn-edit"><i class="far fa-edit"></i></div>`;
         container.appendChild(taskSlot);
         // show a message saying task added, make it disappear after 2 seconds.
         showWarnings("task-added");
@@ -34,6 +41,31 @@ form.addEventListener("submit", function(event) {
 
                 // when 'task finished' button is clicked, show the undo-taskfinished button so that user can reset if required.
                 el1.nextElementSibling.classList.remove("hidden");
+                el1.parentElement.lastChild.classList.add("hidden");
+            });
+        });
+
+        // when edit button is clicked allow user to edit the task
+        const edittaskbtns = document.querySelectorAll(".btn-edit");
+
+        edittaskbtns.forEach(function(el4) {
+            el4.addEventListener("click", function() {
+                document.querySelector(".modal-background").classList.remove("hidden");
+                document.querySelector(".modal").classList.remove("hidden");
+                let editFieldValue = document.querySelector("#modal-edit-field");
+                editFieldValue.value = el4.parentElement.firstChild.textContent;
+                form2.addEventListener("submit", function(event2) {
+                    event2.preventDefault();
+                    if (editFieldValue.value === "") {
+                        showWarnings("modal-warning");
+                        return false;
+                    } else {
+                        el4.parentElement.firstChild.textContent = editFieldValue.value;
+                        document.querySelector(".modal-background").classList.add("hidden");
+                        document.querySelector(".modal").classList.add("hidden");
+                        showWarnings("task-edited");
+                    }
+                });
             });
         });
 
@@ -47,6 +79,7 @@ form.addEventListener("submit", function(event) {
                 el3.previousElementSibling.classList.remove("hidden-alt");
                 showWarnings("task-reinstated");
                 el3.parentElement.firstChild.classList.remove("task-finished");
+                el3.parentElement.lastChild.classList.remove("hidden");
             });
         });
 
