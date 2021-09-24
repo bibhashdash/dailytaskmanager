@@ -170,7 +170,6 @@ a {
     cursor: pointer;
     justify-self: end;
     align-self: center;
-    margin-right: 20px;
     font-size: 1.5rem;
     color: rgb(0, 162, 255);
 }
@@ -181,7 +180,7 @@ a {
     cursor: pointer;
     justify-self: end;
     align-self: center;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     font-size: 1.5rem;
     color: rgb(0, 219, 0);
 }
@@ -190,7 +189,7 @@ a {
     cursor: pointer;
     justify-self: end;
     align-self: center;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     font-size: 1.5rem;
     color: rgb(255, 255, 255);
 }
@@ -204,7 +203,7 @@ a {
     justify-self: end;
     align-self: center;
     /* margin-left: 5px; */
-    margin-right: 20px;
+    /* margin-right: 20px; */
     font-size: 1.5rem;
     color: rgb(253, 63, 63);
 }
@@ -266,7 +265,7 @@ a {
         width: 75vw;
     }
     .task-slot {
-        grid-template-columns: 60% auto auto auto;
+        grid-template-columns: 60% auto auto auto auto;
     }
 }
 
@@ -298,10 +297,10 @@ a {
     }
     .task-slot {
         font-size: 1rem;
-        grid-template-columns: 60% auto auto auto;
+        grid-template-columns: 60% auto auto auto auto;
     }
     .btn-delete {
-        margin-right: 5px;
+        /* margin-right: 5px; */
         font-size: 1.5rem;
     }
     .task-text {
