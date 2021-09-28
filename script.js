@@ -119,3 +119,24 @@ function showWarnings(warningMessage) {
         document.querySelector(`.${warningMessage}`).classList.add("hidden");
     }, 2000);
 }
+
+// share the list
+
+document
+    .querySelector(".btn-share-list")
+    .addEventListener("click", async() => {
+        try {
+            let sharedListString = "";
+            const sharedList = document.querySelectorAll(".task-text");
+            sharedList.forEach(function(target) {
+                sharedListString += target.textContent + "+";
+            });
+            const sharedListObject = {
+                text: sharedListString,
+            };
+            await navigator.share(sharedListObject);
+            console.log(sharedListObject);
+        } catch (error) {
+            alert("Could not share");
+        }
+    });
