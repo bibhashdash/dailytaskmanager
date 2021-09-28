@@ -110,12 +110,13 @@ a {
 .btn {
     /* width: 50%; */
     font-family: "Nunito", sans-serif;
-    font-size: 1rem;
+    font-size: 0.7rem;
     background: black;
     color: honeydew;
     cursor: pointer;
     /* width: 200px; */
     height: 2.36rem;
+    text-transform: uppercase;
     /* background-color: rgb(255, 218, 56); */
 }
 
@@ -135,6 +136,12 @@ a {
     margin-bottom: 1rem;
 }
 
+.big-button {
+    border: 1px solid grey;
+    border-radius: 7px;
+    width: 150px;
+}
+
 .btn-reset-list {
     /* margin-bottom: 2rem; */
     /* background: linear-gradient(to bottom, #333333, #dd1818); */
@@ -143,10 +150,20 @@ a {
     color: rgb(255, 255, 255);
 }
 
+.btn-reset-list:hover {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
 .btn-share-list {
     margin-left: 1rem;
     background-color: rgb(255, 208, 0);
     color: black;
+}
+
+.btn-share-list:hover {
+    background-color: black;
+    color: rgb(255, 255, 255);
 }
 
 .container {
@@ -274,6 +291,9 @@ a {
     .container {
         width: 75vw;
     }
+    .btn {
+        font-size: 0.8rem;
+    }
     .form {
         width: 75vw;
     }
@@ -285,6 +305,9 @@ a {
 @media all and (min-width: 768px) and (max-width: 1024px) {
     .container {
         width: 50vw;
+    }
+    .btn {
+        font-size: 0.8rem;
     }
     .form {
         width: 50vw;
@@ -306,7 +329,10 @@ a {
         width: 90vw;
     }
     .btn {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
+    }
+    .big-button {
+        width: 120px;
     }
     .task-slot {
         font-size: 1rem;
