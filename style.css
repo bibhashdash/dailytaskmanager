@@ -127,6 +127,11 @@ a {
     background-color: rgb(0, 71, 112);
 }
 
+.btn:hover {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
 .big-buttons {
     display: flex;
     flex-direction: row;
@@ -150,20 +155,10 @@ a {
     color: rgb(255, 255, 255);
 }
 
-.btn-reset-list:hover {
-    background-color: black;
-    color: rgb(255, 255, 255);
-}
-
 .btn-share-list {
     margin-left: 1rem;
     background-color: rgb(255, 208, 0);
     color: black;
-}
-
-.btn-share-list:hover {
-    background-color: black;
-    color: rgb(255, 255, 255);
 }
 
 .container {
