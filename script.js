@@ -126,10 +126,10 @@ document
     .querySelector(".btn-share-list")
     .addEventListener("click", async() => {
         try {
-            let sharedListString = "";
+            let sharedListString = "List of tasks \n";
             const sharedList = document.querySelectorAll(".task-text");
             sharedList.forEach(function(target) {
-                sharedListString += target.textContent + "+";
+                sharedListString += target.textContent + "\n";
             });
             const sharedListObject = {
                 text: sharedListString,
