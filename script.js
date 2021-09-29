@@ -17,10 +17,10 @@ form.addEventListener("submit", function(event) {
         taskSlot = document.createElement("div");
         taskSlot.classList.add("task-slot");
         taskSlot.innerHTML = `<p class="task-text">${inputFieldValue}</p>
-        <div class="btn-finished"><i class="far fa-check-square"></i></div>
+        <div class="btn-finished"><i class="far fa-check-square btn-task-action"></i></div>
         
-        <div class="btn-undofinished hidden"><i class="fas fa-undo-alt"></i></div>
-    <div class="btn-delete"><i class="far fa-trash-alt"></i></div><div class="btn-edit"><i class="far fa-edit"></i></div>`;
+        <div class="btn-undofinished hidden"><i class="fas fa-undo-alt btn-task-action"></i></div>
+    <div class="btn-delete"><i class="far fa-trash-alt btn-task-action"></i></div><div class="btn-edit"><i class="far fa-edit btn-task-action"></i></div>`;
         container.appendChild(taskSlot);
         // show a message saying task added, make it disappear after 2 seconds.
         showWarnings("task-added");
@@ -91,6 +91,17 @@ form.addEventListener("submit", function(event) {
 
                 // show a message saying task deleted, make it disappear after 2 seconds.
                 showWarnings("task-deleted");
+            });
+        });
+        // microinteractions for task-action buttons
+        const btnTaskActions = document.querySelectorAll(".btn-task-action");
+        btnTaskActions.forEach(function(el5) {
+            el5.addEventListener("mouseover", function() {
+                el5.style.transform = "rotate(360deg)";
+                el5.style.transitionDuration = "0.5s";
+            });
+            el5.addEventListener("mouseout", function() {
+                el5.style.transform = "rotate(-360deg)";
             });
         });
     } else {
