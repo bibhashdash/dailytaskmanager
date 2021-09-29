@@ -111,15 +111,32 @@ form.addEventListener("submit", function(event) {
     }
 });
 
-// refresh the list
+// clear the list
 document
     .querySelector(".btn-reset-list")
     .addEventListener("click", function() {
-        form.reset();
-        const taskSlots = document.querySelectorAll(".task-slot");
-        for (let k = 0; k < taskSlots.length; k++) {
-            taskSlots[k].remove();
-        }
+        // show a modal with a warning asking
+        // if user is sure about clearing list
+        document.querySelector(".modal-background").classList.remove("hidden");
+        document.querySelector(".are-you-sure-modal").classList.remove("hidden");
+        document
+            .querySelector(".clear-list-yes")
+            .addEventListener("click", function() {
+                form.reset();
+                const taskSlots = document.querySelectorAll(".task-slot");
+                for (let k = 0; k < taskSlots.length; k++) {
+                    taskSlots[k].remove();
+                }
+                document.querySelector(".modal-background").classList.add("hidden");
+                document.querySelector(".are-you-sure-modal").classList.add("hidden");
+            });
+
+        document
+            .querySelector(".clear-list-no")
+            .addEventListener("click", function() {
+                document.querySelector(".modal-background").classList.add("hidden");
+                document.querySelector(".are-you-sure-modal").classList.add("hidden");
+            });
     });
 
 // warning messages function
