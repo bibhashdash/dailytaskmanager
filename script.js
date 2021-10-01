@@ -3,6 +3,8 @@ const newTaskInput = document.querySelector(".btn-newtask");
 const form = document.getElementById("form");
 const form2 = document.getElementById("form2");
 const modalBackground = document.querySelector(".modal-background");
+
+const bigButton = document.querySelectorAll(".big-button");
 modalBackground.addEventListener("click", function() {
     document.querySelector(".modal-background").classList.add("hidden");
     document.querySelector(".modal").classList.add("hidden");
@@ -168,3 +170,15 @@ document
             alert("Could not share");
         }
     });
+
+// big button microinteractions
+bigButton.forEach(function(el6) {
+    el6.addEventListener("mouseover", function() {
+        el6.style.transform = "scale(1.3, 1.3)";
+        el6.style.transitionDuration = "0.3s";
+    });
+    el6.addEventListener("mouseout", function() {
+        el6.style.transform = "scale(1, 1)";
+        el6.style.transitionDuration = "0.3s";
+    });
+});
