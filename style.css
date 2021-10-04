@@ -102,6 +102,17 @@ a {
     justify-content: stretch; */
 }
 
+.form2 {
+    width: 30vw;
+    box-shadow: 5px 5px 10px black;
+    /* background-color: rgb(255, 255, 255); */
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 0;
+    /* align-items: center;
+    justify-content: stretch; */
+}
+
 .enter-task-field {
     height: 2rem;
     font-family: "Nunito", sans-serif;
@@ -304,6 +315,9 @@ a {
     .form {
         width: 75vw;
     }
+    .form2 {
+        width: 75vw;
+    }
     .task-slot {
         grid-template-columns: 60% auto auto auto auto;
     }
@@ -317,6 +331,9 @@ a {
         font-size: 0.8rem;
     }
     .form {
+        width: 50vw;
+    }
+    .form2 {
         width: 50vw;
     }
     .task-slot {
@@ -333,6 +350,9 @@ a {
         font-size: 16px;
     }
     .form {
+        width: 90vw;
+    }
+    .form2 {
         width: 90vw;
     }
     .btn {

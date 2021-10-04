@@ -51,18 +51,24 @@ form.addEventListener("submit", function(event) {
         // when edit button is clicked allow user to edit the task
         const edittaskbtns = document.querySelectorAll(".btn-edit");
 
-        edittaskbtns.forEach(function(el4) {
+        edittaskbtns.forEach(function(el4, index) {
             el4.addEventListener("click", function() {
+                console.log(el4, index);
                 document.querySelector(".modal-background").classList.remove("hidden");
                 document.querySelector("#edit-task-modal").classList.remove("hidden");
-                let editFieldValue = document.querySelector("#modal-edit-field");
+                let editFieldValue;
+
+                editFieldValue = document.querySelector("#modal-edit-field");
                 editFieldValue.value = el4.parentElement.firstChild.textContent;
+                // console.log(typeof editFieldValue.value);
                 form2.addEventListener("submit", function(event2) {
                     event2.preventDefault();
                     if (editFieldValue.value === "") {
                         showWarnings("modal-warning");
                         return false;
                     } else {
+                        console.log(editFieldValue.value);
+                        console.log(el4.parentElement.firstChild.textContent);
                         el4.parentElement.firstChild.textContent = editFieldValue.value;
                         document.querySelector(".modal-background").classList.add("hidden");
                         document.querySelector("#edit-task-modal").classList.add("hidden");
