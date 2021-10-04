@@ -8,6 +8,7 @@ const bigButton = document.querySelectorAll(".big-button");
 modalBackground.addEventListener("click", function() {
     document.querySelector(".modal-background").classList.add("hidden");
     document.querySelector(".modal").classList.add("hidden");
+    document.querySelector("#edit-task-modal").classList.add("hidden");
 });
 
 form.addEventListener("submit", function(event) {
@@ -53,7 +54,7 @@ form.addEventListener("submit", function(event) {
         edittaskbtns.forEach(function(el4) {
             el4.addEventListener("click", function() {
                 document.querySelector(".modal-background").classList.remove("hidden");
-                document.querySelector(".modal").classList.remove("hidden");
+                document.querySelector("#edit-task-modal").classList.remove("hidden");
                 let editFieldValue = document.querySelector("#modal-edit-field");
                 editFieldValue.value = el4.parentElement.firstChild.textContent;
                 form2.addEventListener("submit", function(event2) {
@@ -64,7 +65,7 @@ form.addEventListener("submit", function(event) {
                     } else {
                         el4.parentElement.firstChild.textContent = editFieldValue.value;
                         document.querySelector(".modal-background").classList.add("hidden");
-                        document.querySelector(".modal").classList.add("hidden");
+                        document.querySelector("#edit-task-modal").classList.add("hidden");
                         showWarnings("task-edited");
                     }
                 });
